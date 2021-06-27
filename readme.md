@@ -3,8 +3,11 @@ and from this we will create own branches to edit
 
 links:
 https://jsonplaceholder.typicode.com/   - our api
+
 https://medium.com/the-andela-way/how-to-structure-a-react-native-app-for-scale-a29194cd33fc    - our architecture
+
 https://reactnative.dev/docs/network   -using fetch
+
 https://github.com/axios/axios    - using axios
 
 
