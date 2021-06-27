@@ -1,0 +1,1 @@
+This is the application-level reducer. Its function is to merge the various feature-level reducers using redux’s combineReucers function.
