@@ -8,6 +8,9 @@
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({
+        resolver: {
+          sourceExts: ['jsx', 'js', 'ts', 'tsx'],
+      },
       transform: {
         experimentalImportSupport: false,
         inlineRequires: true,
