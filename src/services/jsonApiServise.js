@@ -1,4 +1,4 @@
-import axios from './hotels4Service';
+import axios from './jsonApiServiseCofig';
 
 const hotelsService = {
   getPosts(params) {
