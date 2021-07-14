@@ -35,7 +35,7 @@ export default SignIn = ({navigation}) => {
                     </AuthContainer>
                 </Auth>
 
-                <SignInContainer>
+                <SignInContainer onPress={() => navigation.navigate("Main")}>
                     <Text bold center color="#fff">Sign In</Text>
                 </SignInContainer>
 

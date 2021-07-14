@@ -15,14 +15,23 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 
 import AppStack from './src/components/stacks/AppStack';
+import Gallery from './src/components/screens/Gallery';
 
-const App: () => Node = () => {
-  console.log(hotelsService.getPosts());
-  return (
-    <NavigationContainer>
-      <AppStack />
-    </NavigationContainer>
-  );
-};
+const App = () => {
+	return (
+		<NavigationContainer>
+			<AppStack />
+		</NavigationContainer>
+	);
+}
 
 export default App;
+
+// const App: () => Node = () => {
+//   // console.log(hotelsService.getPosts());
+//   return (
+//     <NavigationContainer>
+//       <AppStack />
+//     </NavigationContainer>
+//   );
+// };
