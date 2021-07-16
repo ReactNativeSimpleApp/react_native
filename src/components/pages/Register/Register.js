@@ -1,19 +1,7 @@
 import React from 'react';
 import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TextInput,
-  Button,
-  useColorScheme,
-  View,
-} from 'react-native';
-
+import {Text, TextInput, Button, View} from 'react-native';
 const Register: () => Node = () => {
-
   return (
     <View>
       <Text>Register</Text>
@@ -25,10 +13,9 @@ const Register: () => Node = () => {
       <TextInput placeholder="Password" />
       <Text>Confirm password</Text>
       <TextInput placeholder="Confirm password" />
-      <Button title="Submit"/>
+      <Button title="Submit" />
     </View>
   );
 };
-
 
 export default Register;

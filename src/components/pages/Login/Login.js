@@ -1,21 +1,9 @@
 import React from 'react';
 import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TextInput,
-  Button,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import { Link } from '@react-navigation/native';
+import {Text, TextInput, Button, View} from 'react-native';
+import {Link} from '@react-navigation/native';
 
 const Login: () => Node = () => {
-
   return (
     <View>
       <Text>Login</Text>
@@ -23,14 +11,13 @@ const Login: () => Node = () => {
       <TextInput placeholder="Email" />
       <Text>Password</Text>
       <TextInput placeholder="Password" />
-      <Button title="Submit"/>
-      <Button  
-        title="Register"  
-        onPress={() => this.props.navigation.navigate('Register')}  
-      />  
+      <Button title="Submit" />
+      <Button
+        title="Register"
+        onPress={() => this.props.navigation.navigate('Register')}
+      />
     </View>
   );
 };
-
 
 export default Login;
