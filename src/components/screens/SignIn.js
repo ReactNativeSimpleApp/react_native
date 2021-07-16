@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Text from '../reusable/Text';
 import jsonApiService from '../../services/jsonApiServise';
@@ -102,7 +103,13 @@ const Auth = styled.View`
 `;
 
 const AuthContainer = styled.View`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   margin-bottom: 32px;
+  border-bottom-color: #8e93a1;
+  border-bottom-width: 1px;
 `;
 
 const AuthTitle = styled(Text)`
@@ -113,9 +120,9 @@ const AuthTitle = styled(Text)`
 `;
 
 const AuthField = styled.TextInput`
-  border-bottom-color: #8e93a1;
-  border-bottom-width: 1px;
   height: 48px;
+  flex: 1;
+  color: #17a2b8;
 `;
 
 const SignInContainer = styled.TouchableOpacity`
@@ -123,7 +130,7 @@ const SignInContainer = styled.TouchableOpacity`
   height: 48px;
   align-items: center;
   justify-content: center;
-  background-color: #8e93a1;
+  background-color: #17a2b8;
   border-radius: 6px;
 `;
 
