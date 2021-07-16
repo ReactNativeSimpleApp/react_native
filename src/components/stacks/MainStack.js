@@ -1,6 +1,6 @@
 import React from  "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from '../screens/Home';
 import Gallery from '../screens/Gallery';
@@ -9,39 +9,36 @@ import Profiles from '../screens/Profiles';
 export default MainStack = () => {
     const MainS = createBottomTabNavigator();
     const tabBarOptions = {
-        showLabel: true,
+        showLabel: false,
         style: {
-            backgroundColor: "#222222",
-            paddingBottom: 12
+            borderTopWidth: 1,
+            borderTopColor: "#17a2b8",
+            backgroundColor: "#222222"
         },
     };
 
-    const screensOptions = (({route}) => ({
+    const screenOptions = (({route}) => ({
         tabBarIcon: ({focused}) => {
-            let iconName = "i-home"
+            let iconName = "md-home"
 
             switch(route.name) {
                 case "Home":
-                    iconName = "iso-home"
+                    iconName = "md-home"
+                    break;
+                case "Gallery":
+                    iconName = "md-images"
+                    break;
+                case "Profiles":
+                    iconName = "md-people"
                     break;
                 default:
-                    iconName = "iso-home"
-
+                    iconName = "md-home"
             }
-
-            if (route.name === "Gallery"){
-                return(
-                    <Ionicons name="i-add-sircle" size={48} color="#23a8d9" style={{shadowColor: "#23a8d9",
-                    shadowOffset: {width:0, height: 10}, shadowRadius: 10, shadowOpacity: 0.3,
-                    }}/>
-                )
-            }
-
-            return <Ionicons name={iconName} size={24} color={focused ? "#ffffff" : "#666666"}/>
+            return <Ionicons name={iconName} size={24} color={focused ? "#17a2b8" : "#666"}/>
         }
     }))
  return (
-    <MainS.Navigator tabBarOptions={tabBarOptions} screensOptions={screensOptions}>
+    <MainS.Navigator screenOptions={screenOptions} tabBarOptions={tabBarOptions}>
         <MainS.Screen name="Home" component={Home} />
         <MainS.Screen name="Gallery" component={Gallery} />
         <MainS.Screen name="Profiles" component={Profiles} />

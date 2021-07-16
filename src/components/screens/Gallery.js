@@ -9,7 +9,7 @@ import Text from '../reusable/Text';
 const Gallery = ({navigation}) => {
   return (
         <Container>
-            <Text title heavy margin="40px 20px 10px 20px" color="#8e93a1">Photos</Text>
+            <Text title heavy margin="40px 20px 10px 20px" color="#17a2b8">Photo gallery:</Text>
            <GridImageView data={[ 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzqe5muqrlSXq3ZbIf5sRlU-VXoN3MNCUUhQ&usqp=CAU', 
            'https://image3.mouthshut.com/images/imagesp/925791837s.jpg', 
            'https://9to5mac.com/wp-content/uploads/sites/6/2016/11/15-touch-bar-macbook-pro-tips-and-tricks1.jpg?quality=82&strip=all', 
@@ -18,8 +18,9 @@ const Gallery = ({navigation}) => {
   );
 };
 
+export default Gallery;
+
 const Container = styled.View`
     flex: 1;
+    background-color: #343a40;
 `;
-
-export default Gallery;

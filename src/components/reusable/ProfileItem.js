@@ -7,9 +7,9 @@ import Text from './Text';
 
 
 export default ProfileItem = ({name, mobile, email}) => {
-    return <View>
+    return <Container>
         <UserContainer>
-            <Text large heavy margin="2px 0" color="#8e93a1">
+            <Text large heavy margin="2px 0" color="#17a2b8">
                 {name}
             </Text>
             <Text medium bold margin="2px 0" color="#8e93a1">
@@ -19,14 +19,21 @@ export default ProfileItem = ({name, mobile, email}) => {
                 {email}
             </Text>
         </UserContainer>
-    </View>
+    </Container>
 }
 
-const UserContainer = styled.View`
-    padding: 10px;
-    margin: 5px 16px;
+const Container = styled.View`
     justify-content: center;
-    border: 1px solid #8e93a1;
-    border-radius: 6px;
+    align-items: center;
+`;
+
+const UserContainer = styled.View`
+    flex:1;
+    border:1px solid #ccc;
+    margin:2px 0;
+    box-shadow:0 0 10px #ccc;
+    background-color:#222222;
+    width:90%;
+    padding:8px;
 
 `;

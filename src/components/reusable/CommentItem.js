@@ -6,31 +6,30 @@ import { View } from 'react-native';
 import Text from './Text';
 
 
-const PostItem = ({name, text}) => {
+const CommentItem = ({name, text}) => {
     return <Container>
-        <PostContainer>
+        <CommentContainer>
             <Text large heavy margin="2px 0" color="#17a2b8">
                 {name}
             </Text>
             <Text medium bold margin="2px 0" color="#8e93a1">
                 {text}
             </Text>
-        </PostContainer>
+        </CommentContainer>
     </Container>
 }
 
-export default PostItem;
+export default CommentItem;
 
 const Container = styled.View`
     justify-content: center;
     align-items: center;
 `;
 
-const PostContainer = styled.View`
-    border:1px solid #ccc;
-    margin:2px 0;
-    box-shadow:0 0 10px #ccc;
-    background-color: #222222;
+const CommentContainer = styled.View`
+    border-left-width: 1px; 
+    border-left-color: #17a2b8;
+    margin:6px 0;
     width:90%;
     padding:8px;
 `;
