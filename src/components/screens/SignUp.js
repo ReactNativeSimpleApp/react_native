@@ -7,27 +7,29 @@ import Text from '../reusable/Text';
 const checkAuthData = (password, confirmPassword, email, emails) => {
   let validation = {
     error: [],
-    result: false,
+    result: true,
   };
   //Minimum 8 and maximum 16 characters, at least one uppercase letter, one lowercase letter, one number and one special character
   if (
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/.test(
+    !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/.test(
       password,
     )
   ) {
-    validation.result = true;
-  } else {
     validation.error.push(
       'Password must have Minimum 8 and maximum 16 characters, at least one uppercase letter, one lowercase letter, one number and one special character ',
     );
+    validation.result = false;
   }
   if (password !== confirmPassword) {
     validation.error.push(`password and confirm password doesn't match`);
+    validation.result = false;
   }
-  if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+  if (!/^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(email)) {
     validation.error.push('this email is not valide');
+    validation.result = false;
   } else if (emails.includes(email)) {
     validation.error.push('user with such email is already exist');
+    validation.result = false;
   }
   // console.log(validation);
   return validation;
