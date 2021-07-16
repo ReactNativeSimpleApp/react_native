@@ -4,7 +4,7 @@ import jsonApiService from '../../services/jsonApiServise';
 
 import Text from '../reusable/Text';
 
-export default SignUp = ({navigation}) => {
+const SignUp = ({navigation}) => {
   let {email, setEmail} = useState();
   let {users, setUsers} = useState();
   useEffect(() => {
@@ -12,11 +12,12 @@ export default SignUp = ({navigation}) => {
       .getUsers()
       .then(data => {
         setUsers(data.data);
+        console.log(data.data);
       })
       .catch(err => {
         console.log('fuck');
       });
-  }, []);
+  }, [setUsers]);
 
   useEffect(() => {}, [email]);
 
@@ -136,3 +137,5 @@ const SignUpContainer = styled.TouchableOpacity`
 const SignIn = styled.TouchableOpacity`
   margin-top: 16px;
 `;
+
+export default SignUp;
