@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
-import {View, ScrollView} from 'react-native';
+import {View} from 'react-native';
 
 import Text from '../reusable/Text';
 
 import PostItem from '../reusable/PostItem';
+
 import jsonApiService from '../../services/jsonApiServise';
 
 export default Home = ({navigation}) => {
@@ -37,7 +36,6 @@ export default Home = ({navigation}) => {
             id: post.id,
           })),
         );
-        console.log(posts);
       })
       .catch(err => {
         console.error(err);
@@ -51,7 +49,15 @@ export default Home = ({navigation}) => {
             Posts:
           </Text>
           {posts.map(item => (
-            <Post onPress={() => navigation.navigate('Post')} key={item.id}>
+            <Post
+              onPress={() =>
+                navigation.navigate('Post', {
+                  postTitle: item.title,
+                  postId: item.id,
+                  userId: item.userId,
+                })
+              }
+              key={item.id}>
               <PostItem
                 name={`${
                   users.filter(user => {
