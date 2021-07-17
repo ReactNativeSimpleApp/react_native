@@ -10,20 +10,8 @@ import PostItem from '../reusable/PostItem';
 import jsonApiService from '../../services/jsonApiServise';
 
 export default Home = ({navigation}) => {
-  const [posts, setPosts] = useState([
-    {
-      name: '',
-      id: '',
-      username: '',
-    },
-  ]);
-  const [users, setUsers] = useState([
-    {
-      userId: '',
-      title: '',
-      id: '',
-    },
-  ]);
+  const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
   useEffect(() => {
     jsonApiService
       .getUsers()
@@ -35,11 +23,6 @@ export default Home = ({navigation}) => {
             username: user.username,
           })),
         );
-        console.log(users);
-        let us = users.filter(user => {
-          return user.id === 1;
-        });
-        console.log(us);
       })
       .catch(err => {
         console.error(err);
@@ -60,34 +43,43 @@ export default Home = ({navigation}) => {
         console.error(err);
       });
   }, []);
-  return (
-    <Container>
-      <View>
-        <Text title heavy margin="40px 20px 10px 20px" color="#17a2b8">
-          Posts:
-        </Text>
-        {posts.map(item => (
-          <Post onPress={() => navigation.navigate('Post')} key={item.id}>
-            <PostItem
-              name={`${
-                users.filter(user => {
-                  return user.id === item.userId;
-                })[0].name
-              }, ${
-                users.filter(user => {
-                  return user.id === item.userId;
-                })[0].username
-              }`}
-              text={`${item.title}`}
-            />
-          </Post>
-        ))}
-        <PostItem name="Kate Smith" text="Great app!" />
-
-        <PostItem name="James Brown" text="Hi there! How are you?" />
-      </View>
-    </Container>
-  );
+  if (posts.length > 0 && users.length > 0) {
+    return (
+      <Container>
+        <View>
+          <Text title heavy margin="40px 20px 10px 20px" color="#17a2b8">
+            Posts:
+          </Text>
+          {posts.map(item => (
+            <Post onPress={() => navigation.navigate('Post')} key={item.id}>
+              <PostItem
+                name={`${
+                  users.filter(user => {
+                    return user.id === item.userId;
+                  })[0].name
+                }, ${
+                  users.filter(user => {
+                    return user.id === item.userId;
+                  })[0].username
+                }`}
+                text={`${item.title}`}
+              />
+            </Post>
+          ))}
+        </View>
+      </Container>
+    );
+  } else {
+    return (
+      <Container>
+        <View>
+          <Text title heavy margin="40px 20px 10px 20px" color="#17a2b8">
+            Posts:
+          </Text>
+        </View>
+      </Container>
+    );
+  }
 };
 
 const Container = styled.ScrollView`
