@@ -41,8 +41,6 @@ const Post = ({route}) => {
             body: comment.body,
           })),
         );
-
-        console.log(comments);
       })
       .catch(err => {
         console.error(err);
