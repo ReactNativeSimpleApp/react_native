@@ -37,7 +37,6 @@ export default Home = ({navigation}) => {
             id: post.id,
           })),
         );
-        console.log(posts);
       })
       .catch(err => {
         console.error(err);
@@ -51,7 +50,13 @@ export default Home = ({navigation}) => {
             Posts:
           </Text>
           {posts.map(item => (
-            <Post onPress={() => navigation.navigate('Post')} key={item.id}>
+            <Post
+              onPress={() =>
+                navigation.navigate('Post', {
+                  post: item.id,
+                })
+              }
+              key={item.id}>
               <PostItem
                 name={`${
                   users.filter(user => {
