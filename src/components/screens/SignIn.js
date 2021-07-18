@@ -79,7 +79,7 @@ export default SignIn = ({navigation}) => {
       </SignInContainer>
 
       <SignUp onPress={() => navigation.navigate('SignUp')}>
-        <Text small center>
+        <Text small center color="#8e93a1" margin="0 0 6px 0">
           New here?{' '}
           <Text bold color="black">
             Sign Up

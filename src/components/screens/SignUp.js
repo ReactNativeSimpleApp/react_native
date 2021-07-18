@@ -119,18 +119,15 @@ export default SignUp = ({navigation}) => {
           </AuthContainer>
         </Auth>
 
-        <SignUpContainer>
+        <SignUpContainer
+        onPress={() => setValidation(checkAuthData
+        (password, confirmPassword, email, emails))}>
           <Text bold center color="#fff">
             Sign Up
           </Text>
         </SignUpContainer>
 
-        <SignIn
-          onPress={() =>
-            setValidation(
-              checkAuthData(password, confirmPassword, email, emails),
-            )
-          }>
+        <SignIn onPress={() => navigation.navigate('SignIn')}>
           <Text small center color="#8e93a1" margin="0 0 6px 0">
             Have an account?{' '}
             <Text bold color="black" color="#17a2b8">
