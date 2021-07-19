@@ -18,18 +18,23 @@ const Gallery = ({route}) => {
     jsonApiService
       .getAlbums({userId: route.params.userId})
       .then(alb => {
-        alb.data.data.forEach(album => {
-          jsonApiService
-            .getPhotos({albumId: album.id})
-            .then(pht => {
-              pht.data.data.forEach(photo => {
-                photos.push(photo.thumbnailUrl);
+        alb.data.data
+          .forEach(album => {
+            jsonApiService
+              .getPhotos({albumId: album.id})
+              .then(pht => {
+                pht.data.data.forEach(photo => {
+                  photos.push(photo.thumbnailUrl);
+                });
+              })
+              .catch(err => {
+                console.error(err);
               });
-            })
-            .catch(err => {
-              console.error(err);
-            });
-        });
+          })
+
+          .catch(err => {
+            console.error(err);
+          });
         setPhotosToShow(photos);
         setIsLoading(false);
         console.log(photosToShow);
