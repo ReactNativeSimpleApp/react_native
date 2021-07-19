@@ -1,1 +1,0 @@
-A major part of this architecture: the feature folder, consists of a module for each of the application’s feature.

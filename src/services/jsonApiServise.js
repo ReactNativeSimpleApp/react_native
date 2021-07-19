@@ -1,6 +1,6 @@
-import axios from './hotels4Service';
+import axios from './jsonApiServiseCofig';
 
-const hotelsService = {
+const jsonApiService = {
   getPosts(params) {
     return axios
       .get('/posts', {
@@ -75,4 +75,4 @@ const hotelsService = {
   },
 };
 
-export default hotelsService;
+export default jsonApiService;
