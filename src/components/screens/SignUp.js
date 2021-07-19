@@ -199,5 +199,5 @@ const SignUpContainer = styled.TouchableOpacity`
 `;
 
 const SignIn = styled.TouchableOpacity`
-  margin-top: 16px;
+  margin: 10px;
 `;
