@@ -10,7 +10,7 @@ import Post from '../screens/Post';
 export default AppStack = () => {
   const AppStackNav = createStackNavigator();
   const user = {
-    isLoggedIn: false,
+    isLoggedIn: true,
   };
 
   return (

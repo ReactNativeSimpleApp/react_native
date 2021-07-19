@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import GridImageView from 'react-native-grid-image-viewer';
 
@@ -11,8 +11,10 @@ const Gallery = ({route}) => {
       userId: 1,
     },
   };
-  const photos = [];
+  const [photosToShow, setPhotosToShow] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    const photos = [];
     jsonApiService
       .getAlbums({userId: route.params.userId})
       .then(alb => {
@@ -28,19 +30,36 @@ const Gallery = ({route}) => {
               console.error(err);
             });
         });
+        setPhotosToShow(photos);
+        setIsLoading(false);
+        console.log(photosToShow);
       })
       .catch(err => {
         console.error(err);
       });
   }, []);
-  return (
-    <Container>
-      <Text title heavy margin="40px 20px 10px 20px" color="#17a2b8">
-        Photo gallery:
-      </Text>
-      <GridImageView data={photos} />
-    </Container>
-  );
+  if (isLoading) {
+    return (
+      <Container>
+        <Text title heavy margin="40px 20px 10px 20px" color="#17a2b8">
+          Photo gallery:
+        </Text>
+        <Text title margin="40px 20px 10px 20px" color="#17a2b8">
+          {' '}
+          Loading ...
+        </Text>
+      </Container>
+    );
+  } else {
+    return (
+      <Container>
+        <Text title heavy margin="40px 20px 10px 20px" color="#17a2b8">
+          Photo gallery:
+        </Text>
+        <GridImageView data={photosToShow} />
+      </Container>
+    );
+  }
 };
 
 export default Gallery;
