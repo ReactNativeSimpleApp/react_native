@@ -6,7 +6,7 @@ import { View } from 'react-native';
 import Text from './Text';
 
 
-export default ProfileItem = ({name, mobile, email}) => {
+const ProfileItem = ({name, mobile, email}) => {
     return <Container>
         <UserContainer>
             <Text large heavy margin="2px 0" color="#17a2b8">
@@ -21,6 +21,8 @@ export default ProfileItem = ({name, mobile, email}) => {
         </UserContainer>
     </Container>
 }
+
+export default ProfileItem;
 
 const Container = styled.View`
     justify-content: center;
