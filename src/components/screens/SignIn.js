@@ -23,7 +23,7 @@ const checkAuthData = (email, emails) => {
     return validation;
 };
 
-export default SignIn = ({navigation}) => {
+const SignIn = ({navigation}) => {
     const [validation, setValidation] = useState({
         error: [],
         result: true,
@@ -100,6 +100,8 @@ export default SignIn = ({navigation}) => {
         </Container>
     );
 };
+
+export default SignIn;
 
 const Container = styled.View`
     flex: 1;

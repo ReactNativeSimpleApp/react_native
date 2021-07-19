@@ -6,15 +6,13 @@ import UserContext from '../../context/UserContext';
 
 import AuthStack from './AuthStack';
 import MainStack from './MainStack';
-import Profiles from '../screens/Profiles';
 import Profile from '../screens/Profile';
 import Post from '../screens/Post';
-import Gallery from '../screens/Gallery';
 
 export default AppStack = () => {
     const AppStackNav = createStackNavigator();
     const user = {
-        isLoggedIn: false
+        isLoggedIn: true
     };
 
     return (
