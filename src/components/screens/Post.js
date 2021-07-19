@@ -73,7 +73,7 @@ const Post = ({route}) => {
 
 export default Post;
 
-const Container = styled.View`
+const Container = styled.ScrollView`
   flex: 1;
   background-color: #343a40;
 `;

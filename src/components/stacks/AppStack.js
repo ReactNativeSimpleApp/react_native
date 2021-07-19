@@ -14,7 +14,7 @@ import Gallery from '../screens/Gallery';
 export default AppStack = () => {
     const AppStackNav = createStackNavigator();
     const user = {
-        isLoggedIn: true
+        isLoggedIn: false
     };
 
     return (
